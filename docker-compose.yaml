@@ -1,0 +1,17 @@
+services:
+  stable-diffusion-webui:
+    container_name: stable-diffusion-webui
+    image: sd-webui:latest
+    volumes:
+      - ./models:/stable-diffusion-webui/models
+      - ./outputs:/stable-diffusion-webui/outputs
+    ports:
+      - "7860:7860"    
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
