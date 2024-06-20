@@ -2,6 +2,9 @@ services:
   stable-diffusion-webui:
     container_name: stable-diffusion-webui
     image: sd-webui:latest
+    environment:
+      - UID=${UID}
+      - GID=${GID}
     volumes:
       - ./models:/stable-diffusion-webui/models
       - ./outputs:/stable-diffusion-webui/outputs
