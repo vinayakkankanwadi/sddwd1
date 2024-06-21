@@ -1,7 +1,6 @@
 
 # 🐳 Base image
-#FROM pytorch/pytorch:2.1.0-cuda12.1-cudnn8-runtime
-FROM nvidia/cuda:12.5.0-runtime-ubuntu22.04
+FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime
 # 🚫 Remove interactivity since using the base image will ask for a timezone - This allows to not provide it
 ENV DEBIAN_FRONTEND=noninteractive
 # 📚 Install missing system packages (git, libgl1, ..., are needed for Stable Diffusion and are not installed in the base image)
