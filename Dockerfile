@@ -13,12 +13,12 @@ ENV ROOT_DIR=/stable-diffusion-webui
 WORKDIR ${ROOT_DIR}
 # 📥 Download the AUTOMATIC1111 from the specified release
 RUN git clone -b ${SD_WEBUI_VERSION:-v1.9.4} https://github.com/AUTOMATIC1111/stable-diffusion-webui.git ${ROOT_DIR} --single-branch
+# 🔑 Give correct access rights to the user
+RUN chown -R user:user ${ROOT_DIR}
 # 👮‍♀️ Make the webui.sh script executable
 RUN chmod +x webui.sh
 # ⌛️ Install the webui.sh file (--exit parameter allows to only install it without without running it)
 RUN ./webui.sh -f --exit
-# 🔑 Give correct access rights to the user
-RUN chown -R user:user ${ROOT_DIR}
 ENV HOME=${ROOT_DIR}
 ENV WEBUI_PORT=7860
 EXPOSE ${WEBUI_PORT}
