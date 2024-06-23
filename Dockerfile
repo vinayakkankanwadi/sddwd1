@@ -23,4 +23,4 @@ ENV CLI_ARGS=${CLI_ARGS}
 ENV HOME=${ROOT_DIR}
 ENV WEBUI_PORT=7860
 EXPOSE ${WEBUI_PORT}
-CMD ./webui.sh --port ${WEBUI_PORT} ${CLI_ARGS}
+CMD [ "./webui.sh", "--xformers", "--api", "--listen", "--enable-insecure-extension-access", "${CLI_ARGS}" ]
