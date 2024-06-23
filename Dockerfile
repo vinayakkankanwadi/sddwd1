@@ -19,7 +19,8 @@ RUN chown -R user:user ${ROOT_DIR}
 RUN chmod +x webui.sh
 # ⌛️ Install the webui.sh file (--exit parameter allows to only install it without without running it)
 RUN ./webui.sh -f --exit
+ENV CLI_ARGS=""
 ENV HOME=${ROOT_DIR}
 ENV WEBUI_PORT=7860
 EXPOSE ${WEBUI_PORT}
-CMD [ "./webui.sh", "--xformers", "--api", "--listen", "--enable-insecure-extension-access" ]
+CMD [ "./webui.sh", "${CLI_ARGS}" ]
