@@ -3,7 +3,7 @@ services:
     container_name: stable-diffusion-webui
     image: sd-webui:latest
     environment:
-      CLI_ARGS: "--skip-version-check --allow-code --enable-insecure-extension-access --api --xformers --opt-channelslast"
+      CLI_ARGS: "--skip-version-check --allow-code --enable-insecure-extension-access --api --listen --xformers --opt-channelslast"
     volumes:
       - ./models:/stable-diffusion-webui/models
       - ./outputs:/stable-diffusion-webui/outputs
