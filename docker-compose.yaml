@@ -5,8 +5,7 @@ services:
     environment:
       CLI_ARGS: "--skip-version-check --allow-code --enable-insecure-extension-access --api --listen --xformers --opt-channelslast"
     volumes:
-      - ./models:/stable-diffusion-webui/models
-      - ./outputs:/stable-diffusion-webui/outputs
+      - /opt/stable-diffusion-webui:/stable-diffusion-webui
     ports:
       - "7860:7860"    
     restart: unless-stopped
